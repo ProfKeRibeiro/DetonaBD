@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <title>Detona Ralph</title>
+</head>
+
+<body>
+    <div id="playerModal" class="modal">
+        <div class="modal-content">
+            <h1>Identifique-se</h1>
+            <form id="playerForm">
+                <label for="playerName">Nome do jogador</label>
+                <input id="playerName" name="playerName" type="text" maxlength="80" required autocomplete="name">
+                <p id="playerError" class="form-error" role="alert"></p>
+                <button type="submit">Começar</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="menu">
+            <div class="menu-time">
+                <h2>Tempo</h2>
+                <h2 id="time-left">00:00</h2>
+            </div>
+            <div class="menu-score">
+                <h2 style="color: red;">Pontuação</h2>
+                <h2 id="score">0</h2>
+            </div>
+            <div class="menu-lives">
+                <img src="./src/images/player.png" alt="Felix" height="50px">
+                <h2 id="lives">x3</h2>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-row">
+                <div class="square enemy" id="01"></div>
+                <div class="square" id="02"></div>
+                <div class="square" id="03"></div>
+            </div>
+            <div class="panel-row">
+                <div class="square" id="04"></div>
+                <div class="square" id="05"></div>
+                <div class="square" id="06"></div>
+            </div>
+            <div class="panel-row">
+                <div class="square" id="07"></div>
+                <div class="square" id="08"></div>
+                <div class="square" id="09"></div>
+            </div>
+        </div>
+    </div>
+    <div id="gameOverModal" class="modal hidden">
+        <div class="modal-content">
+            <div id="gameOverView">
+                <h1>GAME OVER</h1>
+
+                <img src="./src/images/felix-triste.png" alt="Félix triste" class="game-over-img" />
+
+                <p id="finalScore">Pontuação final: 0</p>
+
+                <div class="modal-actions">
+                    <button id="restartBtn">Continuar</button>
+                    <button id="rankingBtn" class="secondary-button">Ver ranking</button>
+                    <button id="changePlayerBtn" class="secondary-button">Mudar jogador</button>
+                </div>
+            </div>
+            <div id="rankingView" class="hidden">
+                <h1>Ranking</h1>
+                <ol id="rankingList" class="ranking-list"></ol>
+                <p id="rankingError" class="form-error"></p>
+                <button id="backToGameOverBtn" class="secondary-button">Voltar</button>
+            </div>
+        </div>
+
+        <audio id="gameOverMusic" src="./src/audios/gameover.mp3"></audio>
+    </div>
+    <!-- scripts -->
+    <script defer src="./src/scripts/engine.js"></script>
+</body>
+
+</html>
